@@ -10,6 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>concurrencies</module>
+        <module>microservice-docker</module>
+        <module>microservice-kubernetes</module>
+        <module>spring-cloud</module>
     </modules>
 
     <parent>
