@@ -11,6 +11,10 @@ public class LinkedlistFunctionality {
 
         functions.printAll();
 
+        Node node = functions.reverseList();
+        functions.printAllWithParam(node);
+
+
     }
 }
 
@@ -89,6 +93,34 @@ class Functions implements SinglyLinkedList {
         }
         System.out.println("Written all element of head.");
     }
+
+
+    @Override
+    public void printAllWithParam(Node node) {
+        Node temp = node;
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+        System.out.println("Written all element of head.");
+    }
+
+
+    @Override
+    public Node reverseList() {
+        Node prev = null, next;
+        Node current = head;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
+
 }
 
 
@@ -102,6 +134,10 @@ interface SinglyLinkedList extends BaseFunctions {
     void deleteLast();
 
     void insertFirst(int first);
+
+    void printAllWithParam(Node node);
+
+    Node reverseList();
 }
 
 interface BaseFunctions {
