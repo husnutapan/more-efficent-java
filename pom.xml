@@ -12,7 +12,6 @@
         <module>concurrencies</module>
         <module>microservice-docker</module>
         <module>microservice-kubernetes</module>
-        <module>spring-cloud</module>
         <module>datastructure</module>
         <module>elasticsearch</module>
     </modules>
