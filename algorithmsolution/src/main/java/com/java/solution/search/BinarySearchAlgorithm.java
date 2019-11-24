@@ -1,4 +1,4 @@
-package com.java.solution;
+package com.java.solution.search;
 
 public class BinarySearchAlgorithm {
     Integer stepCount = 0;
