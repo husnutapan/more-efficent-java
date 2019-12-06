@@ -6,6 +6,7 @@ public class LinkedlistFunctionality {
         functions.addToLast(new Node(1));
         functions.addToLast(new Node(3));
         functions.addToLast(new Node(2));
+        functions.addToLast(new Node(2));
         functions.addToLast(new Node(5));
         functions.addToLast(new Node(4));
 
@@ -14,6 +15,10 @@ public class LinkedlistFunctionality {
         Node node = functions.reverseList();
         functions.printAllWithParam(node);
 
+
+        functions.addToLast(node);
+
+        System.out.println(functions.detectInfinitiveLoop());
 
     }
 }
@@ -121,6 +126,36 @@ class Functions implements SinglyLinkedList {
         return head;
     }
 
+    @Override
+    public Node findMiddleElement(Node head) {
+        Node slow, fast;
+        slow = fast = head;
+        while (fast != null) {
+            fast = fast.next;
+            if (fast != null && fast.next != null) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+        }
+
+        return slow;
+    }
+
+    @Override
+    public Boolean detectInfinitiveLoop() {
+        Node slow, fast;
+        slow = fast = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 }
 
 
@@ -138,6 +173,10 @@ interface SinglyLinkedList extends BaseFunctions {
     void printAllWithParam(Node node);
 
     Node reverseList();
+
+    Node findMiddleElement(Node node);
+
+    Boolean detectInfinitiveLoop();
 }
 
 interface BaseFunctions {
